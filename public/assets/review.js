@@ -20,9 +20,9 @@ const reviews ={
 }    
 const container = document.getElementById('review-bar-container')
 const avgRating = document.querySelector('[data-avg-rating]')
+const totalRatingContainer = document.querySelector('[data-total-ratings]')
 let totalStars = 0;
 window.addEventListener('load',display)
-
 
 function display(){
     Object.entries(reviews)
@@ -60,7 +60,6 @@ function display(){
         avgRating.innerText = 0;
         totalStars = totalStars + (key * value)
         
-        
     })    
     update();
 }    
@@ -72,6 +71,7 @@ function update(){
     })
     console.log(totalStars)
     avgRating.innerText =parseFloat(totalStars/total).toFixed(2) 
+    totalRatingContainer.innerText = total + ' ratings'
 }
 
 function totalFinder(){
