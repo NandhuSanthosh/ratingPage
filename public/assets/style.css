@@ -192,5 +192,5 @@ header h3{
     transition: width .5s linear;
 }
 .star-rating-count span{
-    font-size: .8rem;
+    font-size: .8rem;   
 }

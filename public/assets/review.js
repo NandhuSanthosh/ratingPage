@@ -13,13 +13,14 @@ let reviewCountContainer = `<span>120</span>`
 
 const reviews ={
     5: 120,
-    4: 80,
-    3: 43,
-    2: 10,
-    1: 1
+    4: 111,
+    3: 89,
+    2: 32,
+    1: 2
 }    
 const container = document.getElementById('review-bar-container')
 const avgRating = document.querySelector('[data-avg-rating]')
+let totalStars = 0;
 window.addEventListener('load',display)
 
 
@@ -43,6 +44,7 @@ function display(){
 
         let bar = document.createElement('div')
         bar.classList = 'rating-bar'
+        // bar.style.setProperty('--value','50px')
         bar.dataset.value = value
         // bar.setAttribute('data-reviewBar')
 
@@ -56,6 +58,7 @@ function display(){
         container.appendChild(reviewCount)
 
         avgRating.innerText = 0;
+        totalStars = totalStars + (key * value)
         
         
     })    
@@ -67,6 +70,8 @@ function update(){
     elements.forEach((element)=>{
         element.style.setProperty('--value', `${(element.dataset.value/total)*100}%`)
     })
+    console.log(totalStars)
+    avgRating.innerText =parseFloat(totalStars/total).toFixed(2) 
 }
 
 function totalFinder(){
@@ -76,5 +81,6 @@ function totalFinder(){
     })
     return total;
 }
+
 
 
