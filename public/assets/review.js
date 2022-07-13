@@ -9,7 +9,7 @@ l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.1
 <polygon style="fill:#E3A753;" points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315 
 140.057,4.441 140.057,232.068 	"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
 </div>`
-let reviewCountContainer = `<span>120</span>`
+let reviewCountContainer = `<span data-star-total>2</span>`
 
 const reviews ={
     5: 120,
@@ -51,7 +51,7 @@ function display(){
 
         let reviewCount = document.createElement('div')
         reviewCount.classList = 'star-rating-count'
-        reviewCount.innerHTML = reviewCountContainer
+        reviewCount.innerHTML = `<span data-star-total>${value}</span>`
          
         container.appendChild(starCount)
         container.appendChild(bar)
@@ -69,9 +69,9 @@ function update(){
     elements.forEach((element)=>{
         element.style.setProperty('--value', `${(element.dataset.value/total)*100}%`)
     })
-    console.log(totalStars)
     avgRating.innerText =parseFloat(totalStars/total).toFixed(2) 
     totalRatingContainer.innerText = total + ' ratings'
+
 }
 
 function totalFinder(){
